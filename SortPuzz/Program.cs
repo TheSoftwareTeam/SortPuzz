@@ -42,7 +42,7 @@ namespace SortPuzz
             else if (islem == "D")
             {
                 //Murat-> C:/Users/C9013944/source/repos/
-                //Mahir->
+                //Mahir-> D:/Arcelik/C#/
                 String textFile = File.ReadAllText(@"C:/Users/C9013944/source/repos/SortPuzz/renkKlasor/tubelist18.txt");//Dosyadan renkleri çekme
 
                 //Dosyadaki tüp sayısını bulma
