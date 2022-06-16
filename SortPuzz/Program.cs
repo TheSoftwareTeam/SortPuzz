@@ -40,7 +40,7 @@ namespace SortPuzz
             }
             else if (islem == "D")
             {
-                //Dosya yollari2
+                //Dosya yollari
                 //Murat-> C:/Users/C9013944/source/repos/
                 //Mahir-> D:/Arcelik/C#/
                 
