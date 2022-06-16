@@ -5,7 +5,7 @@ namespace SortPuzz
 {
     class Program
     {
-        //mERHAB ADÜNYA
+        //adasdadasda
         static void Main(string[] args)
         {
 
