@@ -4,5 +4,5 @@ mr ys pb ys
 mr mr pb mr
 kr tr tr pb
 pb kr mv mv
-_ _ _ _
-_ _ _ _
+__ __ __ __
+__ __ __ __
