@@ -5,7 +5,8 @@ namespace SortPuzz
 {
     class Program
     {
-        //adasdadasda
+        //adasdadasd
+        //gdsfdsgsgd
         static void Main(string[] args)
         {
 
@@ -40,7 +41,9 @@ namespace SortPuzz
             }
             else if (islem == "D")
             {
-                String textFile = File.ReadAllText(@"D:/Arcelik/C#/SortPuzz/renkKlasor/tubelist18.txt");//Dosyadan renkleri çekme
+                //Murat-> C:/Users/C9013944/source/repos/
+                //Mahir->
+                String textFile = File.ReadAllText(@"C:/Users/C9013944/source/repos/SortPuzz/renkKlasor/tubelist18.txt");//Dosyadan renkleri çekme
 
                 //Dosyadaki tüp sayısını bulma
                 int tupSayisiDosya = 0;
