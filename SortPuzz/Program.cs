@@ -8,10 +8,7 @@ namespace SortPuzz
 
         static void Main(string[] args)
         {
-
-            string[,] sortPuzz;
-            
-
+            string[,] sortPuzz;      
             string islem;
         OkuIslem:
             Console.Write("Renkleri klavyeden giriniz veya dosyadan seçiniz : Dosya/D - Klavye/K --> D - K = ");
@@ -55,7 +52,7 @@ namespace SortPuzz
                 {
                     tupSayisiDosya++;
                 }
-
+                
                 sortPuzz = new string[tupSayisiDosya, 4];
                 Console.WriteLine("Dosyadaki Tüp Sayisi : " + tupSayisiDosya);
 
@@ -115,9 +112,7 @@ namespace SortPuzz
                     {
                         
                             Console.Write(sortPuzz[i, j] + " ");
-                        
-                        
-
+         
                     }
                     Console.WriteLine();
                 }
@@ -157,11 +152,11 @@ namespace SortPuzz
                         {
                             for (int s = 0; s <= 3; s++)
                             {
-                                if (sayac <= 8 && sonDurumString[adim, j].Substring(sayac, 2) == sortPuzz[i, s].Substring(0, 2) )
+                                if (sayac <= 8 && sonDurumString[adim, j].Substring(sayac, 2) == sortPuzz[i, s].Substring(0, 2))
                                 {
                                     sonDurumHareketListesi[j, k] = sortPuzz[i, s];
                                 }
-                                
+
                             }
                         }
                         sayac = sayac + 2;
@@ -179,7 +174,7 @@ namespace SortPuzz
                 }
 
                 //cikti();
-              
+
 
             }
 
@@ -359,7 +354,7 @@ namespace SortPuzz
                                 else
                                 {
                                     cikmazSayaci++;
-                                    if (cikmazSayaci > 190)
+                                    if (cikmazSayaci > 1000)
                                     {
                                         geriAdimSayaci++;
                                         cikmazSayaci = 0;
