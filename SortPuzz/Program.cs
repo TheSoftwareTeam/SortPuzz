@@ -152,11 +152,10 @@ namespace SortPuzz
                         {
                             for (int s = 0; s <= 3; s++)
                             {
-                                if (sayac <= 8 && sonDurumString[adim, j].Substring(sayac, 2) == sortPuzz[i, s].Substring(0, 2))
+                                if (sayac <= 14 && sonDurumString[adim, j].Substring(sayac, 2) == sortPuzz[i, s].Substring(0, 2))
                                 {
                                     sonDurumHareketListesi[j, k] = sortPuzz[i, s];
                                 }
-
                             }
                         }
                         sayac = sayac + 2;
@@ -173,7 +172,7 @@ namespace SortPuzz
                     Console.WriteLine();
                 }
 
-                //cikti();
+                cikti();
 
 
             }
@@ -309,6 +308,7 @@ namespace SortPuzz
         basa:
             for (int i = 0; i <= tupsayisi; i++)//sutunları gez soldan sağa
             {
+          
                 for (int j = 3; j >= 0; j--)//satırlaeı gez soldan sağa
                 {
                     eldekiKontrol(i, j);
@@ -344,28 +344,36 @@ namespace SortPuzz
 
                                     //Hareket detayı en son kısımda göstermek için hareketDetay dizisine detay verilerini ekleme. 
                                     hareketDetay[hareketSayisi]= hareketSayisi + ". hareket " + (i + 1) + ". tüpten -> " + (k + 1) + ". nolu tüpe "+eldeki+" renginden "+birimSiviSayisi+" birim sıvı.";//ekrana atılması gereken adımları yazar
-                                    
+                        
                                     tupDok(i, j, k, l);
                                     sondurum();
                                     cikti();
                                     bitisKontrol(hareketSayisi);
                                     cikmazSayaci = 0;
+
                                 }
                                 else
                                 {
                                     cikmazSayaci++;
+                                    
                                     if (cikmazSayaci > 1000)
                                     {
+                                        
                                         geriAdimSayaci++;
                                         cikmazSayaci = 0;
                                         Console.WriteLine(adimSayisi);
+                                        
                                         geriAdim(adimSayisi - geriAdimSayaci);
-                                        goto basa;
+                                        i = Convert.ToInt32(adimListesi[adimSayisi - 1].Substring(0, 2));
+   
+                                       
                                     }
+                                    
                                 }
                             }
                         }
                     }
+
                 }
                 
             }
