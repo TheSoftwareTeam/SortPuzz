@@ -63,10 +63,10 @@ namespace SortPuzz
                 {
                     //Dosya yollari
                     ////Murat-> 
-                    //Mahir->D:/ Arcelik / C#/
+                    //Mahir->D:/Arcelik/C#/
                     Console.Write("Dosya numarasını gir: ");
                     string dosyaNo = Console.ReadLine();
-                    String textFile = File.ReadAllText(@"C:/Users/C9013944/source/repos/SortPuzz/renkKlasor/tubelist" + dosyaNo + ".txt");//Dosyadan renkleri çekme
+                    String textFile = File.ReadAllText(@"D:/Arcelik/C#/SortPuzz/renkKlasor/tubelist" + dosyaNo + ".txt");//Dosyadan renkleri çekme
 
 
                     //Dosyadaki tüp sayısını bulma
