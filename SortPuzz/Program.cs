@@ -22,7 +22,7 @@ namespace SortPuzz
             int adim = 1;
 
             bool tupUygun = false;
-            bool tekiGeriAdim = false;
+            bool tekliGeriAdim = true;
             bool tupDolu = false;
             bool eldekiUygun = false;
 
@@ -32,6 +32,8 @@ namespace SortPuzz
             int sonDurumStringSayisi = 0;
             string[] cikmazAdimKaydi = new string[10000];
             string[,] sortPuzz = new string[,] { };
+
+
 
             while (true)
             {
@@ -103,14 +105,9 @@ namespace SortPuzz
                 Console.Clear();
             }
 
-
             int tupsayisi = sortPuzz.GetLength(0) - 1;
             string[,] sonDurumString = new string[10000, sortPuzz.GetLength(0)];
             string[,] sonDurumHareketListesi = new string[sortPuzz.GetLength(0), 4];
-
-
-
-
 
 
             //kullanıcıya ekranda anlık çıktıyı gösterir
@@ -128,8 +125,6 @@ namespace SortPuzz
                     }
                     Console.WriteLine();
                 }
-                //sondurum();
-                Console.WriteLine("");
 
             }
 
@@ -176,11 +171,7 @@ namespace SortPuzz
                     {
                         sortPuzz[i, j] = sonDurumHareketListesi[i, j];
                     }
-
                 }
-
-
-
             }
 
             //eldeki verinin taşınmaya uygunluğunu kontrol eder uygun ise true döner
@@ -335,7 +326,16 @@ namespace SortPuzz
                         Console.WriteLine("");
                         Console.WriteLine("");
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine(adimListesi[adimlar].Substring(0, 2) + " dök " + adimListesi[adimlar].Substring(adimListesi[adimlar].Length - 2, 2));
+                        if (adimlar!=0)
+                        {
+                            Console.WriteLine(adimListesi[adimlar].Substring(0, 2) + " dök " + adimListesi[adimlar].Substring(adimListesi[adimlar].Length - 2, 2));
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("ilk durum");
+                        }
+                        
                         Console.ForegroundColor = ConsoleColor.White;
 
                         Console.WriteLine("");
@@ -352,7 +352,7 @@ namespace SortPuzz
 
 
 
-
+                    Console.WriteLine("");
                     for (int y = 1; y <= hareketSayisi; y++)
                     {
                         if (hareketDetay[y] != null)
@@ -369,6 +369,23 @@ namespace SortPuzz
                 }
             }
 
+
+            //dökme işlemi gerçekleşir
+            void ilkAdimAl()
+            {
+                for (int i = 0; i <= tupsayisi; i++)
+                {
+                    for (int j = 0; j <= 3; j++)
+                    {
+                        sonDurumString[sonDurumStringSayisi, i] += sortPuzz[i, j];
+                    }
+                }
+                sonDurumStringSayisi++;
+                hareketDetay[0] = "ilk durum";
+                adimListesi[0] = "ilk durum";
+                hareketSayisi++;
+                adimSayisi++;
+            }
             //dökme işlemi gerçekleşir
             void tupDok(int i, int j, int k, int l)
             {
@@ -432,25 +449,9 @@ namespace SortPuzz
                     adim++;
                 }
             }
-
-            void ilkAdimAl()
-            {
-                for (int i = 0; i <= tupsayisi; i++)
-                {
-                    for (int j = 0; j <= 3; j++)
-                    {
-                        sonDurumString[sonDurumStringSayisi, i] = sonDurumString[sonDurumStringSayisi, i] + sortPuzz[i, j];
-                    }
-                }
-                sonDurumStringSayisi++;
-                hareketDetay[0] = "ilkAdim";
-                adimListesi[0] = "ilkAdim";
-                hareketSayisi++;
-                adimSayisi++;
-            }
             ilkAdimAl();
 
-
+            
 
             while (true)
             {
@@ -458,11 +459,10 @@ namespace SortPuzz
                 {
                     for (int j = 3; j >= 0; j--)//satırları gez yukarıdan aşağıya
                     {
-
-
                         eldekiKontrol(i, j);
                         if (eldekiUygun == true)//içinde veri var ise veya (en üst hariç) bir üstü boş ise ve kendisi boş değil ise)
                         {
+
                             eldeki = sortPuzz[i, j];//eldeki değişkenine veriyi at
 
                             for (int l = 3; l >= 0; l--)//satırları yukarıdan aşağıya gezerek arama yap
@@ -470,28 +470,37 @@ namespace SortPuzz
                                 for (int k = 0; k <= tupsayisi; k++)//sutunları soldan sağa gezerek arama yap
                                 {
                                     tupKontrol(i, j, k, l);
-
                                     if (tupUygun == true)
                                     {
                                         tupDok(i, j, k, l);
                                         sondurum();
                                         bitisKontrol(hareketSayisi);
                                         cikmazSayaci = 0;
-
                                     }
                                     else
                                     {
                                         cikmazSayaci++;
-                                        if (cikmazSayaci == 788 || (adimSayisi > 4 && adimListesi[adimSayisi - 1] == adimListesi[adimSayisi - 3]))
+                                        if (cikmazSayaci == 1000 || (adimSayisi > 4 && adimListesi[adimSayisi - 1] == adimListesi[adimSayisi - 3]))
                                         {
-                                            cikmazSayaci = 0;
                                             geriAdimSayaci = adim;
-
+                                            cikmazSayaci = 0;
                                             for (int e = 1; e < cikmazAdimsayaci; e++)
                                             {
                                                 if ((adimSayisi - (geriAdimSayaci + 1) == 0) || cikmazAdimKaydi[cikmazAdimsayaci] == cikmazAdimKaydi[e])
                                                 {
-                                                    if (adimSayisi - (geriAdimSayaci + 1) > 0)
+
+                                                    if (adimSayisi - (geriAdimSayaci + 1) <= 0)
+                                                    {
+                                                        if (adimSayisi - (geriAdimSayaci + 1) != 0)
+                                                        {
+                                                            tekliGeriAdim = true;
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        tekliGeriAdim = false;
+                                                    }
+                                                    if (tekliGeriAdim == false)
                                                     {
                                                         adimAtla = adimListesi[adimSayisi - geriAdimSayaci];
 
@@ -509,41 +518,60 @@ namespace SortPuzz
                                                         hareketSayisi = adimSayisi - (geriAdimSayaci);
                                                         adimSayisi = adimSayisi - (geriAdimSayaci);
 
-                                                        tekiGeriAdim = true;
+                                                        if (tupsayisi + 1 != Convert.ToInt32(adimAtla.Substring(0, 2)))
+                                                        {
+                                                            i = Convert.ToInt32(adimAtla.Substring(0, 2));
+                                                        }
+                                                        else
+                                                        {
+                                                            i = 0;
+                                                        }
+
+                                                        j = 3;
+                                                        eldeki = sortPuzz[i, j];
+
+                                                        tekliGeriAdim = true;
+
                                                         break;
                                                     }
                                                 }
                                             }
-                                            if (tekiGeriAdim == false)
+                                            if (tekliGeriAdim == true)
                                             {
                                                 adimAtla = adimListesi[adimSayisi - 1];
                                                 cikmazSayaci = 0;
+
                                                 adimListesi[adimSayisi - 1] = null;
                                                 hareketDetay[adimSayisi - 1] = null;
 
                                                 for (int x = 0; x <= tupsayisi; x++)
                                                 {
+
                                                     sonDurumString[sonDurumStringSayisi - 1, x] = null;
+
+
                                                 }
+
                                                 geriAdimSayaci = 1;
                                                 sonDurumStringSayisi--;
                                                 geriAdim(adimSayisi - (2));
                                                 hareketSayisi = adimSayisi - (geriAdimSayaci);
                                                 adimSayisi = adimSayisi - (geriAdimSayaci);
                                             }
-                                            tekiGeriAdim = false;
+
+                                            tekliGeriAdim = true;
                                             if (cikmazAdimKaydi[cikmazAdimsayaci] != null)
                                             {
                                                 cikmazAdimsayaci++;
                                             }
                                             adim = 1;
+
                                             if (0 != Convert.ToInt32(adimAtla.Substring(0, 2)) && tupsayisi + 1 != Convert.ToInt32(adimAtla.Substring(0, 2)))
                                             {
                                                 i = Convert.ToInt32(adimAtla.Substring(0, 2));
                                                 j = 3;
                                                 eldeki = sortPuzz[i, j];
                                             }
-
                                             k = tupsayisi + 1;
                                             l = -1;
                                             j++;
@@ -558,25 +586,6 @@ namespace SortPuzz
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
