@@ -64,13 +64,12 @@ namespace SortPuzz
                 else if (islem == "D")
                 {
                     //Dosya yollari
-                    ////Murat-> 
+                    ////Murat-> C:/Users/C9013944/source/repos/SortPuzz/
                     //Mahir->D:/Arcelik/C#/
+
                     Console.Write("Dosya numarasını gir: ");
                     string dosyaNo = Console.ReadLine();
-                    String textFile = File.ReadAllText(@"D:/Arcelik/C#/SortPuzz/renkKlasor/tubelist" + dosyaNo + ".txt");//Dosyadan renkleri çekme
-
-
+                    String textFile = File.ReadAllText(@"C:/Users/C9013944/source/repos/SortPuzz/renkKlasor/tubelist" + dosyaNo + ".txt");//Dosyadan renkleri çekme
                     //Dosyadaki tüp sayısını bulma
                     int tupSayisiDosya = 0;
 
@@ -326,7 +325,7 @@ namespace SortPuzz
                         Console.WriteLine("");
                         Console.WriteLine("");
                         Console.ForegroundColor = ConsoleColor.Red;
-                        if (adimlar!=0)
+                        if (adimlar != 0)
                         {
                             Console.WriteLine(adimListesi[adimlar].Substring(0, 2) + " dök " + adimListesi[adimlar].Substring(adimListesi[adimlar].Length - 2, 2));
 
@@ -335,7 +334,7 @@ namespace SortPuzz
                         {
                             Console.WriteLine("ilk durum");
                         }
-                        
+
                         Console.ForegroundColor = ConsoleColor.White;
 
                         Console.WriteLine("");
@@ -451,7 +450,7 @@ namespace SortPuzz
             }
             ilkAdimAl();
 
-            
+
 
             while (true)
             {
