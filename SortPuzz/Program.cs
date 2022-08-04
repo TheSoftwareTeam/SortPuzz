@@ -69,8 +69,6 @@ namespace SortPuzz
                     Console.Write("Dosya numarasını gir: ");
                     string dosyaNo = Console.ReadLine();
                     String textFile = File.ReadAllText(@"C:/Users/C9013944/source/repos/SortPuzz/renkKlasor/tubelist" + dosyaNo + ".txt");//Dosyadan renkleri çekme
-
-
                     //Dosyadaki tüp sayısını bulma
                     int tupSayisiDosya = 0;
 
