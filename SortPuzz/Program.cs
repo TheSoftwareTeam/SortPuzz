@@ -13,6 +13,7 @@ namespace SortPuzz
             string islem;
             string eldeki = "__";
 
+            int sonDurumStringSayisi = 0;
             int cikmazAdimsayaci = 0;
             int cikmazSayaci = 0;
             int geriAdimSayaci = 0;
@@ -29,12 +30,11 @@ namespace SortPuzz
 
             string[] hareketDetay = new string[1000];
             string[] adimListesi = new string[1000];
-            int sonDurumStringSayisi = 0;
-            string[] cikmazAdimKaydi = new string[10000];
+            string[] cikmazAdimKaydi = new string[1000];
             string[,] sortPuzz = new string[,] { };
 
 
-
+            //kaynak seçimi
             while (true)
             {
                 Console.Write("Renkleri klavyeden giriniz veya dosyadan seçiniz : Dosya/D - Klavye/K --> D - K = ");
@@ -94,7 +94,6 @@ namespace SortPuzz
                         i++;
                     }
                     break;
-
                 }
                 else
                 {
@@ -112,19 +111,14 @@ namespace SortPuzz
             //kullanıcıya ekranda anlık çıktıyı gösterir
             void cikti()
             {
-
                 for (int j = 3; j >= 0; j--)
                 {
-
                     for (int i = 0; i <= tupsayisi; i++)
                     {
-
                         Console.Write(sortPuzz[i, j] + " ");
-
                     }
                     Console.WriteLine();
                 }
-
             }
 
             // son durum hareket listesindeki renklerin ilk iki karakterini string tipinde saklıyoruz
@@ -138,7 +132,6 @@ namespace SortPuzz
                     }
                 }
                 sonDurumStringSayisi++;
-
             }
 
             //son durum hareket listesini geri alıyoruz
@@ -163,7 +156,6 @@ namespace SortPuzz
                     }
                     sayac = 0;
                 }
-
                 for (int j = 3; j >= 0; j--)
                 {
                     for (int i = 0; i <= tupsayisi; i++)
@@ -185,14 +177,11 @@ namespace SortPuzz
                     else
                     {
                         eldekiUygun = false;
-
                     }
-
                 }
                 else
                 {
                     eldekiUygun = false;
-
                 }
             }
 
@@ -228,16 +217,12 @@ namespace SortPuzz
                     }
                     else
                     {
-
                         if (j != 0 && l == 3 && sortPuzz[i, j - 1] == eldeki && sortPuzz[k, l - 1] == eldeki)
                         {
-
                             tupUygun = false;
-
                         }
                         else
                         {
-
                             if (adimAtla != "")
                             {
                                 a = Convert.ToInt32(adimAtla.Substring(0, 2));
@@ -270,8 +255,6 @@ namespace SortPuzz
 
                                 }
                             }
-
-
                         }
                     }
                 }
@@ -295,10 +278,8 @@ namespace SortPuzz
                         doluSayac++;
                     }
                 }
-
                 if (doluSayac == tupsayisi - 1)
                 {
-
                     int sayac = 0;
                     for (int adimlar = 0; adimlar < sonDurumStringSayisi; adimlar++)
                     {
@@ -348,9 +329,6 @@ namespace SortPuzz
                         cikti();
                     }
 
-
-
-
                     Console.WriteLine("");
                     for (int y = 1; y <= hareketSayisi; y++)
                     {
@@ -364,12 +342,9 @@ namespace SortPuzz
                             Environment.Exit(0);
                         }
                     }
-
                 }
             }
 
-
-            //dökme işlemi gerçekleşir
             void ilkAdimAl()
             {
                 for (int i = 0; i <= tupsayisi; i++)
@@ -388,7 +363,6 @@ namespace SortPuzz
             //dökme işlemi gerçekleşir
             void tupDok(int i, int j, int k, int l)
             {
-
                 //birim sıvı sayısı bulma
                 int birimSiviSayisi = 0;
                 if (l < 2 && j > 1 && sortPuzz[i, j - 1] == eldeki && sortPuzz[i, j - 2] == eldeki)//3lü taşı
@@ -403,13 +377,8 @@ namespace SortPuzz
                 {
                     birimSiviSayisi++;
                 }
-
                 //Hareket detayı en son kısımda göstermek için hareketDetay dizisine detay verilerini ekleme. 
                 hareketDetay[hareketSayisi] = hareketSayisi + ". hareket " + (i + 1) + ". tüpten -> " + (k + 1) + ". nolu tüpe " + eldeki + " renginden " + birimSiviSayisi + " birim sıvı.";//ekrana atılması gereken adımları yazar
-
-
-
-
 
                 hareketSayisi++;
 
