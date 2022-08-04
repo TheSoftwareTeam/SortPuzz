@@ -154,7 +154,7 @@ namespace SortPuzz
                         {
                             for (int s = 0; s <= 3; s++)
                             {
-                                if (sayac <= tupsayisi+1 && sonDurumString[adim, j].Substring(sayac, 2) == sortPuzz[i, s].Substring(0, 2))
+                                if (sayac <= 14 && sonDurumString[adim, j].Substring(sayac, 2) == sortPuzz[i, s].Substring(0, 2))
                                 {
                                     sonDurumHareketListesi[j, k] = sortPuzz[i, s];
                                 }
@@ -313,7 +313,7 @@ namespace SortPuzz
                                 {
                                     for (int s = 0; s <= 3; s++)
                                     {
-                                        if (sayac <= tupsayisi+1 && sonDurumString[adimlar, j].Substring(sayac, 2) == sortPuzz[i, s].Substring(0, 2))
+                                        if (sayac <= 14 && sonDurumString[adimlar, j].Substring(sayac, 2) == sortPuzz[i, s].Substring(0, 2))
                                         {
                                             sonDurumHareketListesi[j, k] = sortPuzz[i, s];
                                         }
@@ -326,15 +326,16 @@ namespace SortPuzz
                         Console.WriteLine("");
                         Console.WriteLine("");
                         Console.ForegroundColor = ConsoleColor.Red;
-                        if (adimlar!=0)
+                        if (adimlar != 0)
                         {
                             Console.WriteLine(adimListesi[adimlar].Substring(0, 2) + " dök " + adimListesi[adimlar].Substring(adimListesi[adimlar].Length - 2, 2));
+
                         }
                         else
                         {
                             Console.WriteLine("ilk durum");
                         }
-                        
+
                         Console.ForegroundColor = ConsoleColor.White;
 
                         Console.WriteLine("");
@@ -450,7 +451,7 @@ namespace SortPuzz
             }
             ilkAdimAl();
 
-            
+
 
             while (true)
             {
